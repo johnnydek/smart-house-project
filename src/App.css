@@ -1,11 +1,11 @@
-.App {
-  height:450px;
-  width:550px;
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border-style: solid;
-  border-color: green
+.outerApp {
+  display: flex;
+  flex-wrap: wrap;
 }
 
+body{
+  background-color: rgb(238, 235, 235);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;  
+}
