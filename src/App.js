@@ -11,6 +11,8 @@ import houseIcon from './photos/house.png'
 import kitchenBG from './photos/kitchen-bg.jpg'
 import bedroomBG from './photos/bedroom-bg.jpg'
 import bathroomBG from './photos/bathroom-bg.jpg'
+import 'bootstrap/dist/js/bootstrap.min.js';
+
 
 
 function App() {
@@ -21,10 +23,10 @@ function App() {
   const appStyle = {
     width:'550px',
     height:`${appHeight}px`,
-    position: 'absolute',
-    top: '37%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
+    // position: 'absolute',
+    // top: '37%',
+    // left: '50%',
+    // transform: 'translate(-50%, -50%)',
     borderRadius:'5%',
     backgroundImage: `url(${houseBG})`,
     backgroundSize: 'cover',
@@ -144,21 +146,26 @@ function App() {
 
   return (
     <div className='outerApp'>
-    <img src= {houseIcon} alt='house icon' width='100' height='100'/>
-    <div id='mainFrame' style={appStyle}>
-
-     <BrowserRouter>
-     <Main/>
-     <Routes>
-      <Route path='/' element={<Roomlist rooms={rooms} height = {setAppHeight}/>}/>
-      <Route path='/addroom' element={<AddRoom add = {addRoomToArr}/>}/>
-      <Route path='/removeroom' element={<RemoveRoom roomList = {rooms} roomToRemove = {removeRoom}/>}/>
-      {rooms.map((val,index)=>{
-        return <Route path={`/room${val.Name}`} element={<RoomProp roomBG = {setHouseBG} roomData = {val} roomIndex={index} deviceRemove={removeDeviceFromRoom} deviceAdd = {addDeviceToRoom} deviceSwitch ={switchDevice}/>}/>
-      })}
-     </Routes>
-     </BrowserRouter>
-    </div>
+      <div className='container-fluid'>
+        <div className='row mb-4'>
+          <div className='col-12 text-center mb-3'>
+            <img src= {houseIcon} alt='house icon' width='100' height='100' style={{marginLeft:'40%'}}/>
+          </div>
+            <div className='col-md-9 offset-md-3' style={appStyle}>
+              <BrowserRouter>
+              <Main/>
+              <Routes>
+              <Route path='/' element={<Roomlist rooms={rooms} height = {setAppHeight}/>}/>
+              <Route path='/addroom' element={<AddRoom add = {addRoomToArr}/>}/>
+               <Route path='/removeroom' element={<RemoveRoom roomList = {rooms} roomToRemove = {removeRoom}/>}/>
+                    {rooms.map((val,index)=>{
+                  return <Route path={`/room${val.Name}`} element={<RoomProp roomBG = {setHouseBG} roomData = {val} roomIndex={index} deviceRemove={removeDeviceFromRoom} deviceAdd = {addDeviceToRoom} deviceSwitch ={switchDevice}/>}/>
+                })}
+              </Routes>
+              </BrowserRouter>
+            </div>
+          </div>
+      </div>
     </div>
   );
 }

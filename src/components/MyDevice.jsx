@@ -4,6 +4,7 @@ import boilerIcon from '../photos/boiler.png'
 import ACIcon from '../photos/air-conditioner.png'
 import lampIcon from '../photos/floor-lamp.png'
 import stereoIcon from '../photos/speaker.png'
+import 'bootstrap/dist/js/bootstrap.min.js'
 
 
 export default function MyDevice(props) {
@@ -35,12 +36,21 @@ export default function MyDevice(props) {
           }
     }
   return (
-    <div id = {`${props.name}id`} style={deviceStyle}
-       onClick={()=>{props.deviceSwitch(props.name,props.roomIndex); innerSwitch()}}>{props.name} <div style={{fontSize:'10px',position:'absolute',marginTop:'-10px',left:'75%'}}><p>{deviceTurn}</p></div>
-        {props.name.includes('Air Conditioner') && <img src= {ACIcon} alt='ac icon' width='50' height='50' style={{postion:'absolute',transform: 'translate(-210%, -3%)',marginTop:'-35px'}}/>}
-        {props.name.includes('Lamp') && <img src= {lampIcon} alt='lamp icon' width='40' height='40' style={{postion:'absolute',transform: 'translate(-330%, 50%)',marginTop:'-35px'}}/>}
-        {props.name.includes('Electric Boiler') && <img src= {boilerIcon} alt='boiler icon' width='40' height='40' style={{postion:'absolute',transform: 'translate(-250%, -3%)',marginTop:'-35px'}}/>}
-        {props.name.includes('Stereo System') && <img src= {stereoIcon} alt='stereo0 icon' width='40' height='40' style={{postion:'absolute',transform: 'translate(-250%, -6%)',marginTop:'-35px'}}/>}
+    <div id = {`${props.name}id`} style={deviceStyle}onClick={()=>{props.deviceSwitch(props.name,props.roomIndex); innerSwitch()}}>{props.name} <div style={{fontSize:'10px',marginTop:'-10px',left:'75%'}}><p>{deviceTurn}</p></div>
+      <div className='row '>
+       <div className='col'>
+        {props.name.includes('Air Conditioner') && <img src= {ACIcon} alt='ac icon' width='50' height='50' style={{transform: 'translate(-210%, -43%)',marginTop:'-35px'}}/>}
+        </div>
+        <div className='col'>
+        {props.name.includes('Lamp') && <img src= {lampIcon} alt='lamp icon' width='40' height='40' style={{transform: 'translate(-250%, -63%',marginTop:'-35px'}}/>}
+        </div>
+        <div className='col'>
+        {props.name.includes('Electric Boiler') && <img src= {boilerIcon} alt='boiler icon' width='40' height='40' style={{transform: 'translate(-250%, -68%)',marginTop:'-35px'}}/>}
+        </div>
+        <div className='col'>
+        {props.name.includes('Stereo System') && <img src= {stereoIcon} alt='stereo0 icon' width='40' height='40' style={{transform: 'translate(-250%, -68%)',marginTop:'-30px'}}/>}
+        </div>
+        </div>
        </div> 
 
       
