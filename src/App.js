@@ -164,7 +164,7 @@ function App() {
               </Routes>
               </BrowserRouter>
             </div>
-            <h1 style={{marginLeft:'20%'}}>App By Jonathan Dekel</h1>
+            <h1 style={{marginLeft:'20%'}}>App by Jonathan Dekel</h1>
           </div>
       </div>
     </div>
